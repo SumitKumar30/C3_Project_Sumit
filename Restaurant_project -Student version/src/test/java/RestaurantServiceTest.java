@@ -18,6 +18,15 @@ class RestaurantServiceTest {
 			throws restaurantNotFoundException {
 		assertNotNull(service.findRestaurantByName("Amelie's cafe"));
 	}
+
+	// You may watch the video by Muthukumaran on how to write exceptions in Course
+	// 3: Testing and Version control: Optional content
+	@Test
+	public void searching_for_non_existing_restaurant_should_throw_exception() throws restaurantNotFoundException {
+		assertThrows(restaurantNotFoundException.class, () -> {
+			service.findRestaurantByName("XYZ");
+		});
+	}
 	// <<<<<<<<<<<<<<<<<<<<SEARCHING>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 	// >>>>>>>>>>>>>>>>>>>>>>ADMIN: ADDING & REMOVING
